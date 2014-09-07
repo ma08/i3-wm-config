@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 set $control ~/.i3/workspace_controller.py
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -25,13 +25,14 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+c kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec $control open
+#bindsym $mod+p exec $control open
+bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -40,18 +41,18 @@ bindsym $mod+p exec $control open
 # dynamic tagging feature
 # bindsym $mod+t exec ~/.i3/get_workspace_options.py | dmenu -b | ~/.i3/go_to_workspace.py
 # bindsym $mod+Shift+t exec ~/.i3/get_workspace_options.py | dmenu -b | ~/.i3/move_to_workspace.py
-bindsym $mod+t exec $control dynamic go
-bindsym $mod+Shift+t exec $control dynamic move
+#
+#
+#bindsym $mod+t exec $control dynamic go
+#bindsym $mod+Shift+t exec $control dynamic move
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # change focus with tab keys
-bindsym Mod1+Tab focus right
-bindsym Mod1+Shift+Tab focus left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left exec $control prev go
@@ -60,26 +61,26 @@ bindsym $mod+Up exec $control up go
 bindsym $mod+Down exec $control down go
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left exec $control prev move
-bindsym $mod+Shift+Right exec $control next move
-bindsym $mod+Shift+Up exec $control up move
-bindsym $mod+Shift+Down exec $control down move
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Control+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
-bindsym $mod+g fullscreen global
+#bindsym $mod+g fullscreen global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -96,7 +97,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+d focus child
+#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 exec $control go 1
@@ -123,10 +124,10 @@ bindsym $mod+Shift+9 exec $control move 9
 bindsym $mod+Shift+0 exec $control move 0
 
 # move workspace between outputs
-bindsym $mod+y move workspace to output left
+#bindsym $mod+y move workspace to output left
 
 # reload the configuration file
-bindsym $mod+Shift+v reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -140,10 +141,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 3 px or 3 ppt
-        bindsym k resize grow height 3 px or 3 ppt
-        bindsym l resize shrink height 3 px or 3 ppt
-        bindsym semicolon resize grow width 3 px or 3 ppt
+        bindsym h resize shrink width 3 px or 3 ppt
+        bindsym j resize grow height 3 px or 3 ppt
+        bindsym k resize shrink height 3 px or 3 ppt
+        bindsym l resize grow width 3 px or 3 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 3 px or 3 ppt
@@ -161,8 +162,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command python /home/benkaiser/.i3/i3pystatusconf.py
-        tray_output primary
+#       status_command python /home/sourya/.i3/i3pystatusconf.py
+#tray_output primary
+		status_command i3status
         colors {
                 background #000000
                 separator  #666666
@@ -192,18 +194,18 @@ bindsym XF86Mail exec thunderbird -compose
 bindsym XF86HomePage exec nemo
 
 # startup programs
-exec pulseaudio --start
-exec /home/benkaiser/.i3/update_background
-exec --no-startup-id i3-msg 'workspace 0; exec thunderbird'
-exec clipit
-exec CopyAgent
+#exec pulseaudio --start
+#exec /home/sourya/.i3/update_background
+#exec --no-startup-id i3-msg 'workspace 0; exec thunderbird'
+#exec clipit
+#exec CopyAgent
 #exec udiskie --tray
 #exec xflux -l -38.14 -g 144.35
-exec xscreensaver -no-splash
-exec conky
-exec pa-applet
-exec amixer sset Master 20%
+#exec xscreensaver -no-splash
+#exec conky
+#exec pa-applet
+#exec amixer sset Master 20%
 #exec --no-startup-id i3-msg 'workspace 1; exec google-chrome'
 
 # open certain windows in floating mode
-for_window [class="(?i)gnome-calculator"] floating enable
+#for_window [class="(?i)gnome-calculator"] floating enable
