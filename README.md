@@ -2,9 +2,11 @@
 
 This is my configuration for the i3 window manager.  
 
-Uses terminator as the terminal.  
+I have used both `awesome` and `i3` and felt `i3` is a bit more customizable. Try both of them before choosing if you hate working with mouse and dig tiling of windows.
 
-I would recommend just copying parts of my config (as certain parts, such as the start up config, may be irrelevent to you). However my workspace_controller.py script is universal.  
+I am still figuring out to get all the parts of the original repo working. Right now, the status bar is the default provided by i3.
+`i3pystatus` is not being used. 
+
 
 # Dependencies
 
@@ -15,25 +17,21 @@ I would recommend just copying parts of my config (as certain parts, such as the
 
 # Keyboard Shortcuts
 
-Mod Key: Alt key (Mod1)
+Mod Key: Windows(Super) key (Mod4)
 
 ## i3 keys
-Mod + Shift + v = Reload i3 configuration file  
+Mod + Shift + b = Reload i3 configuration file  
 Mod + Shift + r = Restart i3 (reload )  
 Mod + Shift + e = Exit i3  
 
 ## Applications
 Mod + Enter = Terminal  
-Mod + p = Run dmenu (with mods to open application in the current space)  
+Mod + d = Run dmenu (with mods to open application in the current space)  
 
 ## Window Operations
 Mod + Shift + c = Kill current window  
 Mod + f = Make current window fullscreen  
-Mod + g = Make current window fullscreen (across all monitors)  
-Mod + Shift + space = Make window floating  
-Mod + y = Move workspace to output left (on dual monitor this is enough to switch between the two)  
 
-(my block modifications apply to the following mods)  
 
 Mod + Shift + 1 = Move window to workspace 1 in block  
 Mod + Shift + 2 = Move window to workspace 2 in block  
@@ -46,15 +44,14 @@ Mod + Shift + 8 = Move window to workspace 8 in block
 Mod + Shift + 9 = Move window to workspace 9 in block  
 Mod + Shift + 0 = Move window to workspace 0 in block  
 
-Mod + Shift + t = Move window to specific workspace with dmenu (dynamic tiling)  
-
+##Enter resize mode
 Mod + r = Resize window  
 
-## Navigation
-Mod + j = Focus window to the left  
-Mod + k = Focus window down  
-Mod + l = Focus window up  
-Mod + ; = Focus window to the right  
+## Navigation. Changed to replicate vim bindings
+Mod + h = Focus window to the left  
+Mod + j = Focus window down  
+Mod + k = Focus window up  
+Mod + l = Focus window to the right  
 
 (my block modifications apply to the following mods)
 
@@ -69,10 +66,8 @@ Mod + 8 = Switch to workspace 8 in block
 Mod + 9 = Switch to workspace 9 in block  
 Mod + 0 = Switch to workspace 0 in block  
 
-Mod + t = Jump to specific workspace with dmenu (dynamic tiling)  
-
 ## Layouts
-Mod + h = Split horizontal layout  
+Mod + Shift+Control+h = Split horizontal layout  
 Mod + v = Split vertical layout  
 Mod + s = Stacking layout  
 Mod + w = Tabbed layout  
@@ -84,6 +79,11 @@ Volume Decrease Key (varies on keyboard) / XF86AudioLowerVolume = Lower volume b
 Volume Increase Key (varies on keyboard) / XF86AudioRaiseVolume = Raise volume by 2%  
 Volume Mute Key (varies on keyboard) / XF86AudioMute = Mute volume  
 
+#Rhythmbox bindings
+Shift+Control+space Play/Pause
+Shift+Control+j Play Next Song
+Shift+Control+k Play Previous Song
+
 ## Block Modifications
 Mod + Left = Switch to workspace -1 (e.g. 1 to 0)  
 Mod + Right = Switch to workspace +1 (e.g 1 to 2)  
@@ -94,5 +94,4 @@ The blocks refer to blocks of 10, so if you were on workspace 15 and pressed `Mo
 
 ## Other Modifications
 Custom color scheme centering around my favourite color #44bbff.  
-Custom status bar, showing suspend, screensaver and sleep buttons.  
-My own application startup list, custom status bar options, just sift through what you want  
+My own application startup list, just sift through what you want  
