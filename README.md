@@ -84,11 +84,15 @@ Shift+Control+space Play/Pause
 Shift+Control+j Play Next Song
 Shift+Control+k Play Previous Song
 
-## Block Modifications
+## Block Modifications. Added vim style bindings
 Mod + Left = Switch to workspace -1 (e.g. 1 to 0)  
+Mod +Control+ h = Switch to workspace -1 (e.g. 1 to 0)  
 Mod + Right = Switch to workspace +1 (e.g 1 to 2)  
+Mod + Control+l = Switch to workspace +1 (e.g 1 to 2)  
 Mod + Up = Switch to workspace +10 (e.g 1 to 11)  
+Mod + Control+k = Switch to workspace +10 (e.g 1 to 11)  
 Mod + Down = Switch to workspace -10 (e.g 1 to -9)  
+Mod + Control+j = Switch to workspace -10 (e.g 1 to -9)  
 
 The blocks refer to blocks of 10, so if you were on workspace 15 and pressed `Mod + 2` you would move to 12. The same applies to `Mod + Shift + 2` except it moves the window to the selected workspace.  
 
