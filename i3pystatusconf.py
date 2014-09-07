@@ -60,9 +60,6 @@ status.register("disk",
     path="/",
     format="{avail}G",)
 
-status.register("disk",
-    path="/home/benkaiser/HD/",
-    format="{avail}G",)
 
 # Shows pulseaudio default sink volume
 #
@@ -73,7 +70,7 @@ status.register("pulseaudio",
 # all my custom buttons
 status.register("text",
     text="New Comic",
-    cmd_leftclick="/home/benkaiser/.i3/update_background",
+    cmd_leftclick="/home/sourya/.i3/update_background",
     color="#44bbff")
 
 status.register("text",
