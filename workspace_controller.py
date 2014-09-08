@@ -67,6 +67,8 @@ else:
       pass
   # get the workspace number
   workspace_name = get_workspace()
+  workspaces = get_workspaces()
+  total_workspaces=len(workspaces)
   workspace_val = 1 # default value if name parseing fails
   try:
     workspace_val = int(workspace_name)
@@ -74,23 +76,32 @@ else:
     pass
   # handle the commands
   if command == 'up':
-    workspace_val += 10
+    workspace_val = (workspace_val+1)
+    #workspace_val = (workspace_val+1)%(total_workspaces+1)
+    #workspace_val = 1 if workspace_val==0 else workspace_val
   elif command == 'down':
-    workspace_val -= 10
+    workspace_val = (workspace_val-1)%(total_workspaces+1)
+    workspace_val = total_workspaces if workspace_val==0 else workspace_val
+    #workspace_val -= 10
   elif command == 'next':
-    workspace_val += 1
+    workspace_val = (workspace_val+1)
+    #workspace_val = (workspace_val+1)%(total_workspaces+1)
+    #workspace_val = 1 if workspace_val==0 else workspace_val
+    #workspace_val += 1
   elif command == 'prev':
-    workspace_val -= 1
+    workspace_val = (workspace_val-1)%(total_workspaces+1)
+    workspace_val = total_workspaces if workspace_val==0 else workspace_val
+    #workspace_val -= 1
   elif command == 'go':
     # go to workspace in block
-    workspace_rounded = int(math.floor(workspace_val/10))*10
-    workspace_rounded += switch_number
-    go_to(workspace_rounded)
+    #workspace_rounded = int(math.floor(workspace_val/10))*10
+    #workspace_rounded += switch_number
+    go_to(switch_number)
   elif command == 'move':
     # move the current container to the selected workspace
-    workspace_rounded = int(math.floor(workspace_val/10))*10
-    workspace_rounded += switch_number
-    move_to(workspace_rounded)
+    #workspace_rounded = int(math.floor(workspace_val/10))*10
+    #workspace_rounded += switch_number
+    move_to(switch_number)
   elif command == 'open':
     open_app(workspace_name)
   elif command == 'dynamic':
@@ -99,6 +110,7 @@ else:
     workspaces = get_workspaces()
     inputstr = '\n'.join(workspaces)
     result = dmenu_fetch(inputstr)
+    result=10 if result==0 else result
     if command2 == 'go':
       go_to(result)
     elif command2 == 'move':
