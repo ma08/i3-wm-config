@@ -6,6 +6,8 @@ I have used both `awesome` and `i3` and felt `i3` is a bit more customizable. Tr
 
 I am still figuring out to get all the parts of the original repo working. Right now, the status bar is the default provided by i3.
 `i3pystatus` is not being used. 
+`workspace_controller.py` is not being used as workspace navigation is slow.
+Using the default commands for the navigation keybindings
 
 
 # Dependencies
@@ -53,18 +55,6 @@ Mod + j = Focus window down
 Mod + k = Focus window up  
 Mod + l = Focus window to the right  
 
-(my block modifications apply to the following mods)
-
-Mod + 1 = Switch to workspace 1 in block  
-Mod + 2 = Switch to workspace 2 in block  
-Mod + 3 = Switch to workspace 3 in block  
-Mod + 4 = Switch to workspace 4 in block  
-Mod + 5 = Switch to workspace 5 in block  
-Mod + 6 = Switch to workspace 6 in block  
-Mod + 7 = Switch to workspace 7 in block  
-Mod + 8 = Switch to workspace 8 in block  
-Mod + 9 = Switch to workspace 9 in block  
-Mod + 0 = Switch to workspace 0 in block  
 
 ## Layouts
 Mod + Shift+Control+h = Split horizontal layout  
@@ -84,7 +74,7 @@ Shift+Control+space Play/Pause
 Shift+Control+j Play Next Song
 Shift+Control+k Play Previous Song
 
-## Block Modifications. Added vim style bindings
+## Added vim style bindings
 Mod + Left = Switch to workspace -1 (e.g. 1 to 0)  
 Mod +Control+ h = Switch to workspace -1 (e.g. 1 to 0)  
 Mod + Right = Switch to workspace +1 (e.g 1 to 2)  
@@ -93,6 +83,9 @@ Mod + Up = Switch to workspace +10 (e.g 1 to 11)
 Mod + Control+k = Switch to workspace +10 (e.g 1 to 11)  
 Mod + Down = Switch to workspace -10 (e.g 1 to -9)  
 Mod + Control+j = Switch to workspace -10 (e.g 1 to -9)  
+
+##Move to previous workspace
+Mod+b
 
 The blocks refer to blocks of 10, so if you were on workspace 15 and pressed `Mod + 2` you would move to 12. The same applies to `Mod + Shift + 2` except it moves the window to the selected workspace.  
 
