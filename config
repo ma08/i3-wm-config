@@ -14,7 +14,7 @@
 workspace_auto_back_and_forth yes
 
 set $mod Mod4
-set $control ~/.i3/workspace_controller.py
+#set $control ~/.i3/workspace_controller.py
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -59,15 +59,22 @@ bindsym $mod+l focus right
 # change focus with tab keys
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left exec $control prev go
-bindsym $mod+Right exec $control next go
-bindsym $mod+Up exec $control up go
-bindsym $mod+Down exec $control down go
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
+bindsym $mod+Up workspace prev
+bindsym $mod+Down workspace next
 
-bindsym $mod+Control+k exec $control prev go
-bindsym $mod+Control+j exec $control next go
-bindsym $mod+Control+h exec $control prev go
-bindsym $mod+Control+l exec $control next go
+#bindsym $mod+Control+k exec $control prev go
+#bindsym $mod+Control+j exec $control next go
+#bindsym $mod+Control+h exec $control prev go
+#bindsym $mod+Control+l exec $control next go
+
+bindsym $mod+Control+k workspace prev
+bindsym $mod+Control+j workspace next
+bindsym $mod+Control+h workspace prev
+bindsym $mod+Control+l workspace next
+
+
 
 
 
@@ -111,28 +118,42 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 exec $control go 1
-bindsym $mod+2 exec $control go 2
-bindsym $mod+3 exec $control go 3
-bindsym $mod+4 exec $control go 4
-bindsym $mod+5 exec $control go 5
-bindsym $mod+6 exec $control go 6
-bindsym $mod+7 exec $control go 7
-bindsym $mod+8 exec $control go 8
-bindsym $mod+9 exec $control go 9
-bindsym $mod+0 exec $control go 0
+#bindsym $mod+1 exec $control go 1
+#bindsym $mod+2 exec $control go 2
+#bindsym $mod+3 exec $control go 3
+#bindsym $mod+4 exec $control go 4
+#bindsym $mod+5 exec $control go 5
+#bindsym $mod+6 exec $control go 6
+#bindsym $mod+7 exec $control go 7
+#bindsym $mod+8 exec $control go 8
+#bindsym $mod+9 exec $control go 9
+#bindsym $mod+0 exec $control go 0
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+b workspace back_and_forth
+
 
 # move focused container to workspace
-bindsym $mod+Shift+1 exec $control move 1
-bindsym $mod+Shift+2 exec $control move 2
-bindsym $mod+Shift+3 exec $control move 3
-bindsym $mod+Shift+4 exec $control move 4
-bindsym $mod+Shift+5 exec $control move 5
-bindsym $mod+Shift+6 exec $control move 6
-bindsym $mod+Shift+7 exec $control move 7
-bindsym $mod+Shift+8 exec $control move 8
-bindsym $mod+Shift+9 exec $control move 9
-bindsym $mod+Shift+0 exec $control move 0
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+10 move container to workspace 10
 
 # move workspace between outputs
 #bindsym $mod+y move workspace to output left
@@ -200,6 +221,10 @@ bindsym Shift+Control+Up exec amixer sset Master 2%+ && killall -USR1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer sset Master 2%- && killall -USR1 i3blocks
 bindsym Shift+Control+Down exec amixer sset Master 2%- && killall -USR1 i3blocks
 bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+bindsym $mod+Control+Shift+Up exec xbacklight -set $(echo `xbacklight -get`+20|bc)
+bindsym $mod+Control+Shift+Down exec xbacklight -set $(echo `xbacklight -get`-5|bc)
+
+
 
 #media next and prev
 bindsym Shift+Control+j exec rhythmbox-client --next
@@ -218,8 +243,10 @@ exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'
 exec --no-startup-id i3-msg 'workspace 2; exec firefox'
 exec --no-startup-id i3-msg 'workspace 3; exec rhythmbox'
 exec --no-startup-id i3-msg 'workspace 4; exec gnome-system-monitor'
+exec --no-startup-id i3-msg 'workspace 5; exec nautilus'
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 #
 #exec pulseaudio --start
 #exec /home/sourya/.i3/update_background
