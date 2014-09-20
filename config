@@ -91,7 +91,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+Control+h split h
+bindsym $mod+w split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -102,7 +102,7 @@ bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -239,11 +239,11 @@ bindsym XF86Mail exec thunderbird -compose
 bindsym XF86HomePage exec nemo
 
 # startup programs
-exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'
-exec --no-startup-id i3-msg 'workspace 2; exec firefox'
-exec --no-startup-id i3-msg 'workspace 3; exec rhythmbox'
-exec --no-startup-id i3-msg 'workspace 4; exec gnome-system-monitor'
-exec --no-startup-id i3-msg 'workspace 5; exec nautilus'
+exec --no-startup-id i3-msg 'workspace 1; exec gnome-system-monitor'
+exec --no-startup-id i3-msg 'workspace 2; exec rhythmbox'
+exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 4; exec firefox'
+exec --no-startup-id i3-msg 'workspace 9; exec nautilus'
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
