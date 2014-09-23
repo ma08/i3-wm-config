@@ -238,6 +238,12 @@ bindsym XF86Explorer exec google-chrome
 bindsym XF86Mail exec thunderbird -compose
 bindsym XF86HomePage exec nemo
 
+bindsym $mod+o exec notify-send -t 100 $(xprop -id `xdotool getactivewindow` | grep WM_CLASS | cut -d '"' -f4) 
+
+assign [class="Google-chrome"] 5
+assign [class="Gnome-system-monitor"] 1
+assign [class="Rhythmbox"] 2
+
 # startup programs
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-system-monitor'
 exec --no-startup-id i3-msg 'workspace 2; exec rhythmbox'
