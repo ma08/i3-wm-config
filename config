@@ -115,7 +115,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # switch to workspace
 #bindsym $mod+1 exec $control go 1
@@ -140,6 +140,8 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+
+#go to last visited workspace
 bindsym $mod+b workspace back_and_forth
 
 
@@ -240,7 +242,8 @@ bindsym XF86HomePage exec nemo
 
 bindsym $mod+o exec notify-send -t 100 $(xprop -id `xdotool getactivewindow` | grep WM_CLASS | cut -d '"' -f4) 
 
-assign [class="Google-chrome"] 5
+assign [class="Google-chrome"] 8
+#assign [class="Pidgin"] 8
 assign [class="Gnome-system-monitor"] 1
 assign [class="Rhythmbox"] 2
 
@@ -249,7 +252,9 @@ exec --no-startup-id i3-msg 'workspace 1; exec gnome-system-monitor'
 exec --no-startup-id i3-msg 'workspace 2; exec rhythmbox'
 exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal'
 exec --no-startup-id i3-msg 'workspace 4; exec firefox'
+exec --no-startup-id i3-msg 'workspace 8; exec google-chrome'
 exec --no-startup-id i3-msg 'workspace 9; exec nautilus'
+exec --no-startup-id i3-msg 'workspace 10; exec linuxdcpp'
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
