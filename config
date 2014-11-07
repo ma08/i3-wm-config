@@ -237,7 +237,10 @@ bindsym Shift+Control+space exec rhythmbox-client --play-pause
 #launch applications
 bindsym $mod+Shift+f exec firefox
 
+for_window [class="I3-exit"] floating enable border normal
+
 #go(po) home
+bindsym $mod+Delete exec python ~/.i3/i3-exit.py
 bindsym $mod+p exec ~/.i3/goHome.sh
 
 # other keys
