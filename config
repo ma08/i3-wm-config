@@ -254,12 +254,14 @@ bindsym $mod+o exec notify-send -t 100 $(xprop -id `xdotool getactivewindow` | g
 assign [class="Google-chrome"] 8
 assign [class="Pidgin"] 5
 assign [class="Firefox"] 4
+assign [class="Wicd-client.py"] 1
 #assign [class="Pidgin"] 8
 assign [class="Gnome-system-monitor"] 1
 assign [class="Rhythmbox"] 2
 
 # startup programs
 exec --no-startup-id feh --bg-scale ~/Desktop/noteback.png 
+exec --no-startup-id i3-msg 'workspace 1: exec wicd-client'
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-system-monitor'
 exec --no-startup-id i3-msg 'workspace 2; exec rhythmbox'
 exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal'
