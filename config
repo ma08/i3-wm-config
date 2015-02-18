@@ -156,7 +156,7 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+10 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace 10
 
 # move workspace between outputs
 #bindsym $mod+y move workspace to output left
@@ -251,17 +251,22 @@ bindsym XF86HomePage exec nemo
 
 bindsym $mod+o exec notify-send -t 100 $(xprop -id `xdotool getactivewindow` | grep WM_CLASS | cut -d '"' -f4) 
 
-assign [class="Google-chrome"] 8
+#assign [class="Google-chrome"] 8
+assign [class="Vlc"] 7
 assign [class="Pidgin"] 5
+assign [class="Nautilus"] 9
+assign [class="Evince"] 8
 assign [class="Firefox"] 4
 assign [class="Wicd-client.py"] 1
 #assign [class="Pidgin"] 8
 assign [class="Gnome-system-monitor"] 1
 assign [class="Rhythmbox"] 2
+assign [class="Linuxdcpp"] 10
 
 # startup programs
-exec --no-startup-id feh --bg-scale ~/Desktop/noteback.png 
-exec --no-startup-id i3-msg 'workspace 1: exec wicd-client'
+exec --no-startup-id feh --bg-center ~/Pictures/Untitled.png 
+exec --no-startup-id ~/.i3/ram.sh
+exec --no-startup-id i3-msg 'workspace 1; exec wicd-client'
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-system-monitor'
 exec --no-startup-id i3-msg 'workspace 2; exec rhythmbox'
 exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal'
