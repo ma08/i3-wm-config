@@ -255,6 +255,8 @@ bindsym $mod+o exec notify-send -t 100 $(xprop -id `xdotool getactivewindow` | g
 assign [class="Vlc"] 7
 assign [class="Pidgin"] 5
 assign [class="Nautilus"] 9
+assign [class="Libre*"] 8
+assign [class="libreoffice-impress"] 8
 assign [class="Evince"] 8
 assign [class="Firefox"] 4
 assign [class="Wicd-client.py"] 1
