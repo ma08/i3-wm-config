@@ -32,6 +32,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+#bindsym  --release Caps_Lock exec killall -USR1 i3status 
+bindsym  --release Caps_Lock exec killall -USR1 i3status
+
 # kill focused window
 bindsym $mod+Shift+c kill
 
@@ -50,6 +53,9 @@ bindsym $mod+d exec dmenu_run
 #
 #bindsym $mod+t exec $control dynamic go
 #bindsym $mod+Shift+t exec $control dynamic move
+
+#mouse bindings
+bindsym --release button2 kill
 
 # change focus
 bindsym $mod+h focus left
@@ -164,6 +170,7 @@ bindsym $mod+Shift+Control+l move container to workspace next; workspace next
 bindsym $mod+Shift+Control+k move container to workspace prev; workspace prev
 bindsym $mod+Shift+Control+h move container to workspace prev; workspace prev
 
+
 # move workspace between outputs
 #bindsym $mod+y move workspace to output left
 
@@ -205,17 +212,28 @@ bindsym $mod+r mode "resize"
 bar {
 #       status_command python /home/sourya/.i3/i3pystatusconf.py
 #tray_output primary
-		status_command i3status
-        colors {
-                background #000000
-                separator  #666666
-                statusline #ffffff
+		#status_command i3status
+        #colors {
+                #background #000000
+                #separator  #666666
+                #statusline #ffffff
 
-                focused_workspace  #44bbff #3276E8 #ffffff
-                active_workspace   #333333 #5f676a #ffffff
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace   #2f343a #900000 #ffffff
-        }
+                #focused_workspace  #44bbff #3276E8 #ffffff
+                #active_workspace   #333333 #5f676a #ffffff
+                #inactive_workspace #333333 #222222 #888888
+                #urgent_workspace   #2f343a #900000 #ffffff
+    #    }
+    status_command ~/.i3/caps.py
+        #colors {
+                #background #000000
+                #separator  #666666
+                #statusline #ffffff
+
+                #focused_workspace  #44bbff #3276E8 #ffffff
+                #active_workspace   #333333 #5f676a #ffffff
+                #inactive_workspace #333333 #222222 #888888
+                #urgent_workspace   #2f343a #900000 #ffffff
+        #}
 }
 
 # colors
@@ -263,6 +281,7 @@ bindsym $mod+o exec notify-send -t 100 $(xprop -id `xdotool getactivewindow` | g
 #assign [class="Google-chrome"] 8
 assign [class="Vlc"] 7
 assign [class="Pidgin"] 5
+assign [class="Gvim"] 3
 assign [class="Nautilus"] 9
 assign [class="Libre*"] 8
 assign [class="libreoffice-impress"] 8

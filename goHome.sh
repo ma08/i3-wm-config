@@ -6,6 +6,9 @@ case $a in
   Firefox )
   i3-msg "move container to workspace 4" 
     ;;
+  Gvim )
+  i3-msg "move container to workspace 3" 
+    ;;
   Gnome-terminal )
   i3-msg "move container to workspace 3" 
     ;;
