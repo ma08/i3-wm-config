@@ -53,6 +53,10 @@ bindsym $mod+d exec dmenu_run
 #
 #bindsym $mod+t exec $control dynamic go
 #bindsym $mod+Shift+t exec $control dynamic move
+#
+
+#i3lock
+bindsym $mod+q exec ~/.i3/xkcd_i3lock.py
 
 #mouse bindings
 bindsym --release button2 kill
@@ -294,6 +298,7 @@ assign [class="Rhythmbox"] 2
 assign [class="Linuxdcpp"] 10
 
 # startup programs
+exec --no-startup-id xautolock -time 10 -detectsleep -locker "~/.i3/xkcd_i3lock.py" -corners 0+00 -cornerdelay 1 &
 exec --no-startup-id feh --bg-center ~/Pictures/Untitled.png 
 exec --no-startup-id ~/.i3/ram.sh
 exec --no-startup-id i3-msg 'workspace 1; exec wicd-client'
