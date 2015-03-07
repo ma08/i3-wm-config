@@ -301,7 +301,8 @@ assign [class="Linuxdcpp"] 10
 exec --no-startup-id xautolock -time 10 -detectsleep -locker "~/.i3/xkcd_i3lock.py" -corners 0+00 -cornerdelay 1 &
 exec --no-startup-id feh --bg-center ~/Pictures/Untitled.png 
 exec --no-startup-id ~/.i3/ram.sh
-exec --no-startup-id i3-msg 'workspace 1; exec wicd-client'
+#exec --no-startup-id i3-msg 'workspace 1; exec wicd-client'
+exec --no-startup-id exec nm-applet
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-system-monitor'
 exec --no-startup-id i3-msg 'workspace 2; exec rhythmbox'
 exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal'
