@@ -215,37 +215,24 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-#       status_command python /home/sourya/.i3/i3pystatusconf.py
+  #       status_command python /home/sourya/.i3/i3pystatusconf.py
 #tray_output primary
 		#status_command i3status
-        #colors {
-                #background #000000
-                #separator  #666666
-                #statusline #ffffff
-
-                #focused_workspace  #44bbff #3276E8 #ffffff
-                #active_workspace   #333333 #5f676a #ffffff
-                #inactive_workspace #333333 #222222 #888888
-                #urgent_workspace   #2f343a #900000 #ffffff
-    #    }
+        #
     status_command ~/.i3/caps.py
-        #colors {
-                #background #000000
-                #separator  #666666
-                #statusline #ffffff
-
-                #focused_workspace  #44bbff #3276E8 #ffffff
-                #active_workspace   #333333 #5f676a #ffffff
-                #inactive_workspace #333333 #222222 #888888
-                #urgent_workspace   #2f343a #900000 #ffffff
-        #}
+        #
+  colors {
+    separator #dc322f
+    background #00000
+    statusline #268bd2
+    focused_workspace #fdf6e3 #859900 #fdf6e3
+    active_workspace #fdf6e3 #6c71c4 #fdf6e3
+    inactive_workspace #586e75 #93a1a1 #002b36
+    urgent_workspace #d33682 #d33682 #fdf6e3
+  }
 }
 
 # colors
-client.focused          #44bbff #3276E8 #ffffff #cccccc
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
 
 # volume
 bindsym XF86AudioRaiseVolume exec amixer sset Master 2%+ && killall -USR1 i3blocks
@@ -332,3 +319,7 @@ exec --no-startup-id  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-age
 # open certain windows in floating mode
 for_window [class="(?i)gnome-calculator"] floating enable
 for_window [class="Gcalctool"] floating enable
+client.focused #859900 #859900 #fdf6e3 #859900
+client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
+client.unfocused #073642 #073642 #93a1a1 #586e75
+client.urgent #d33682 #d33682 #fdf6e3 #dc322f
