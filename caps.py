@@ -31,6 +31,8 @@ import time
 
 I3STATUS_CMD = 'i3status'
 
+NOW_PLAYING_CMD = 'rhythmbox-client --print-playing'
+
 CAPSLOCK_CMD="xset q | grep 'Caps Lock' | awk '"+'{split($0,a," "); print a[4]}'+"'"
 
 def get_governor():
@@ -61,6 +63,7 @@ lock_dic['on']='#DC322F'
 if __name__ == '__main__':
     p = Popen(I3STATUS_CMD, stdout=PIPE, shell=True)
     p2=Popen(CAPSLOCK_CMD,stdout=PIPE,shell=True)
+    p3=Popen(NOW_PLAYING_CMD,stdout=PIPE,shell=True)
     caps_status=p2.communicate()[0][0:-1]
     # waiting 1 second to get the first lines
     time.sleep(1)
@@ -83,7 +86,12 @@ if __name__ == '__main__':
         #j.insert(0, {'full_text' : '%s' % get_governor(), 'name' : 'gov'})
         #j.insert(0,{'full_text':'CAPS '+caps_status,'name':'Caps_Lock', 'color':lock_dic[caps_status]})
         p2=Popen(CAPSLOCK_CMD,stdout=PIPE,shell=True)
+        p3=Popen(NOW_PLAYING_CMD,stdout=PIPE,shell=True)
+        now_playing=p3.communicate()
+        #print("fooooooooooooo")
+        #print(now_playing)
         caps_status=p2.communicate()[0][0:-1]
         j.insert(0,{'full_text':"Caps Lock "+caps_status ,'name':'Caps_Lock', 'color':lock_dic[caps_status]})
+        j.insert(0,{'full_text':"NP: "+now_playing[0] ,'name':'now_playing', 'color':'#DC322F'})
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))
