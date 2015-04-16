@@ -12,6 +12,7 @@
 
 
 workspace_auto_back_and_forth yes
+workspace_layout tabbed
 
 set $mod Mod4
 set $goHome ~/.i3/goHome.py
@@ -30,13 +31,14 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt -cd ~/pro
 
 #bindsym  --release Caps_Lock exec killall -USR1 i3status 
 bindsym  --release Caps_Lock exec killall -USR1 i3status
 
 # kill focused window
 bindsym $mod+Shift+c kill
+bindsym $mod+Shift+w exec kill -9 $(xprop -id $(xdpyinfo | grep focus | cut -f4 -d " ") | grep -m 1 PID | cut -d " " -f 3)
 
 # start dmenu (a program launcher)
 #bindsym $mod+p exec $control open
@@ -246,12 +248,14 @@ bindsym $mod+Control+Shift+Down exec xbacklight -set $(echo `xbacklight -get`-5|
 
 
 #media next and prev
-bindsym Shift+Control+j exec rhythmbox-client --next
-bindsym Shift+Control+k exec rhythmbox-client --previous
-bindsym Shift+Control+space exec rhythmbox-client --play-pause
+bindsym Shift+Control+j exec ncmpcpp next
+bindsym Shift+Control+k exec ncmpcpp prev
+bindsym Shift+Control+space exec ncmpcpp toggle
 
 #launch applications
 bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+d exec linuxdcpp
+bindsym $mod+Shift+t exec ~/Desktop/tor-browser_en-US/start-tor-browser
 
 for_window [class="I3-exit"] floating enable border normal
 
@@ -270,6 +274,7 @@ bindsym XF86HomePage exec nemo
 
 bindsym $mod+o exec notify-send -t 100 $(xprop -id `xdotool getactivewindow` | grep WM_CLASS | cut -d '"' -f4) 
 
+
 #assign [class="Google-chrome"] 8
 assign [class="Vlc"] 7
 assign [class="Pidgin"] 5
@@ -286,16 +291,21 @@ assign [class="Rhythmbox"] 2
 assign [class="Linuxdcpp"] 10
 
 # startup programs
-exec --no-startup-id xautolock -time 10 -detectsleep -locker "~/.i3/xkcd_i3lock.py" -notify 10 -notifier "notify-send 'Locking'" -corners -+00 -cornerdelay 10 -cornerredelay 10 &
+exec --no-startup-id xautolock -time 10 -detectsleep -locker "~/.i3/xkcd_i3lock.py" -notify 10 -notifier "~/.i3/bark.sh" -corners -+00 -cornerdelay 10 -cornerredelay 10 &
 exec --no-startup-id feh --bg-center ~/Pictures/Untitled.png 
 exec --no-startup-id ~/.i3/ram.sh
 #exec --no-startup-id i3-msg 'workspace 1; exec wicd-client'
 exec --no-startup-id exec nm-applet
+exec --no-startup-id compton -CGb 
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-system-monitor'
-exec --no-startup-id i3-msg 'workspace 2; exec rhythmbox'
-exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e ncmpcpp -s visualizer'
+exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e ncmpcpp -s browser'
+#exec --no-startup-id i3-msg 'workspace 2; exec rhythmbox'
+exec --no-startup-id i3-msg 'workspace 3; exec urxvt -cd ~/pro'
 exec --no-startup-id i3-msg 'workspace 4; exec firefox'
+exec --no-startup-id i3-msg 'workspace 4; exec ~/Desktop/tor-browser_en-US/start-tor-browser'
 #exec --no-startup-id i3-msg 'workspace 8; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace 6; exec urxvt -cd ~/pro -e ranger'
 exec --no-startup-id i3-msg 'workspace 5; exec pidgin'
 exec --no-startup-id i3-msg 'workspace 9; exec nautilus'
 exec --no-startup-id i3-msg 'workspace 10; exec linuxdcpp'

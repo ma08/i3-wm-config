@@ -31,7 +31,7 @@ import time
 
 I3STATUS_CMD = 'i3status'
 
-NOW_PLAYING_CMD = 'rhythmbox-client --print-playing'
+NOW_PLAYING_CMD = "mpc current -f '%title%'"
 
 CAPSLOCK_CMD="xset q | grep 'Caps Lock' | awk '"+'{split($0,a," "); print a[4]}'+"'"
 
@@ -56,7 +56,7 @@ def read_line(process):
   except KeyboardInterrupt:
     sys.exit()
 lock_dic={}
-lock_dic['off']='#00FF00'
+lock_dic['off']='#0C7922'
 lock_dic['on']='#DC322F'
 
 
@@ -92,6 +92,6 @@ if __name__ == '__main__':
         #print(now_playing)
         caps_status=p2.communicate()[0][0:-1]
         j.insert(0,{'full_text':"Caps Lock "+caps_status ,'name':'Caps_Lock', 'color':lock_dic[caps_status]})
-        j.insert(0,{'full_text':"NP: "+now_playing[0] ,'name':'now_playing', 'color':'#DC322F'})
+        j.insert(0,{'full_text':"NP: "+now_playing[0][:-1] ,'name':'now_playing', 'color':'#E6BB1D'})
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))
